@@ -6,6 +6,7 @@ import KompB from './components/KompB.vue'
 import KompC from './components/KompC.vue'
 import ProgressBar from './components/ProgressBar.vue'
 import RoundButton from './components/RoundButton.vue'
+import InfoBox from './components/InfoBox.vue'
 import { ref } from 'vue'
 import { Switch } from '@headlessui/vue'
 const enabled = ref(false)
@@ -48,6 +49,7 @@ const name = "Peter"
           <span :class="enabled ? 'translate-x-6' : 'translate-x-1'"
             class="inline-block h-4 w-4 transform rounded-full bg-white" />
         </Switch>
+        <InfoBox />
       </div>
     </div>
     <!-- <button class="fixed top-5 left-60 w-8 h-8 bg-orange-500 rounded-full" @click="b++;">+</button> -->
