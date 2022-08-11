@@ -6,6 +6,9 @@ import KompB from './components/KompB.vue'
 import KompC from './components/KompC.vue'
 import ProgressBar from './components/ProgressBar.vue'
 import RoundButton from './components/RoundButton.vue'
+import { ref } from 'vue'
+import { Switch } from '@headlessui/vue'
+const enabled = ref(false)
 const name = "Peter"
 </script>
 
@@ -28,7 +31,7 @@ const name = "Peter"
       <div class="border border-yellow-300">
         <KompB v-for="item in vehicles" :var-med-camel="item" />
       </div>
-      <ProgressBar :progress="b % 15" />
+      <ProgressBar v-if="enabled" :progress="b % 15" />
     </div>
     <!-- Try removing flex-wrap -->
     <div>
@@ -39,6 +42,12 @@ const name = "Peter"
       <div class="fixed top-5 left-64">
         <RoundButton color="bg-green-400" sign="-" @clicked="b--" />
         <RoundButton color="bg-orange-400" sign="+" @clicked="b++" />
+        <Switch v-model="enabled" :class="enabled ? 'bg-teal-900' : 'bg-teal-700'"
+          class="relative inline-flex h-6 w-11 items-center rounded-full">
+          <span class="sr-only">Enable notifications</span>
+          <span :class="enabled ? 'translate-x-6' : 'translate-x-1'"
+            class="inline-block h-4 w-4 transform rounded-full bg-white" />
+        </Switch>
       </div>
     </div>
     <!-- <button class="fixed top-5 left-60 w-8 h-8 bg-orange-500 rounded-full" @click="b++;">+</button> -->
