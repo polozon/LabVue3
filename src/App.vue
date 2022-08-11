@@ -31,13 +31,17 @@ const name = "Peter"
       <ProgressBar :progress="b % 15" />
     </div>
     <!-- Try removing flex-wrap -->
-    <div class="bg-slate-300 w-32 h-32 flex flex-wrap">
-      <!-- Building the class with v-bind -->
-      <div v-for="col in colors" :class="col + ' w-12 h-12'" />
+    <div>
+      <div class="bg-slate-300 w-32 h-32 flex flex-wrap">
+        <!-- Building the class with v-bind -->
+        <div v-for="col in colors" :class="col + ' w-12 h-12'" />
+      </div>
+      <div class="fixed top-5 left-64">
+        <RoundButton color="bg-green-400" sign="-" @clicked="b--" />
+        <RoundButton color="bg-orange-400" sign="+" @clicked="b++" />
+      </div>
     </div>
-    <RoundButton color="bg-red-500" sign="-" @clicked="b--" />
-    <RoundButton color="bg-blue-500" sign="+" @clicked="b++" />
-    <button class="fixed top-5 left-60 w-8 h-8 bg-orange-500 rounded-full" @click="b++;">+</button>
+    <!-- <button class="fixed top-5 left-60 w-8 h-8 bg-orange-500 rounded-full" @click="b++;">+</button> -->
   </main>
 </template>
 
