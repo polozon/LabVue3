@@ -17,12 +17,15 @@ const name = "Peter"
 
   <main>
     <div class="text-1xl text-green-600 font-bold px-2 py-4">
-    <KompA />
-    <KompB var-med-camel="1+2"/>
-    <KompB :var-med-camel="1+2"/>
-    <KompB :var-med-camel="name"/>
-    <KompC />
-    <KompC title="Kalle" :likes="a+b" />
+      <KompA />
+      <KompB var-med-camel="1+2" />
+      <KompB :var-med-camel="1 + 2" />
+      <KompB :var-med-camel="name" />
+      <KompC />
+      <KompC title="Kalle" :likes="a + b" />
+      <div class="border border-yellow-300">
+        <KompB v-for="item in vehicles" :var-med-camel="item" />
+      </div>
     </div>
     <button class="fixed top-5 left-60 w-8 h-8 bg-orange-500 rounded-full" @click="b++;">+</button>
   </main>
@@ -31,7 +34,7 @@ const name = "Peter"
 <script>
 export default {
   data() {
-    return { a: 10, b: 2 }
+    return { a: 10, b: 2, vehicles: ['Bil', 'Båt', 'Cykel'] }
   }
 }
 </script>
