@@ -49,7 +49,7 @@ const name = "Peter"
           <span :class="enabled ? 'translate-x-6' : 'translate-x-1'"
             class="inline-block h-4 w-4 transform rounded-full bg-white" />
         </Switch>
-        <InfoBox />
+        <InfoBox>Välkommen till detta test</InfoBox>
       </div>
     </div>
     <!-- <button class="fixed top-5 left-60 w-8 h-8 bg-orange-500 rounded-full" @click="b++;">+</button> -->

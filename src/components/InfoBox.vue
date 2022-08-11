@@ -46,8 +46,7 @@
               </DialogTitle>
               <div class="mt-2">
                 <p class="text-sm text-gray-500">
-                  Your payment has been successfully submitted. We’ve sent you
-                  an email with all of the details of your order.
+                  <slot></slot>
                 </p>
               </div>
 
@@ -78,7 +77,7 @@ import {
   DialogTitle,
 } from '@headlessui/vue'
 
-const isOpen = ref(false)
+const isOpen = ref(true)
 
 function closeModal() {
   isOpen.value = false
@@ -86,4 +85,14 @@ function closeModal() {
 function openModal() {
   isOpen.value = true
 }
+
+/*export default {
+  components: {
+    TransitionRoot,
+    TransitionChild,
+    Dialog,
+    DialogPanel,
+    DialogTitle,
+  }
+}*/
 </script>
