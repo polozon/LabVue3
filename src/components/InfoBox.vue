@@ -1,15 +1,6 @@
 <template>
-      <!-- <div class="fixed inset-0 flex items-center justify-center">
-        <button
-          type="button"
-          @click="openModal"
-          class="rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-        >
-          Open dialog
-        </button>
-      </div> -->
   <TransitionRoot appear :show="isOpen" as="template">
-    <Dialog as="div" @close="closeModal" class="relative z-10">
+    <Dialog as="div" @close="$emit('close')" class="relative z-10">
       <TransitionChild
         as="template"
         enter="duration-300 ease-out"
@@ -42,7 +33,7 @@
                 as="h3"
                 class="text-lg font-medium leading-6 text-gray-900"
               >
-                Payment successful
+                Testar Popup
               </DialogTitle>
               <div class="mt-2">
                 <p class="text-sm text-gray-500">
@@ -54,9 +45,9 @@
                 <button
                   type="button"
                   class="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                  @click="closeModal"
+                  @click="$emit('close')"
                 >
-                  Got it, thanks!
+                  Stäng!
                 </button>
               </div>
             </DialogPanel>
@@ -68,7 +59,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import {
   TransitionRoot,
   TransitionChild,
@@ -77,22 +67,9 @@ import {
   DialogTitle,
 } from '@headlessui/vue'
 
-const isOpen = ref(true)
+const props = defineProps({
+  isOpen: Boolean
+})
+const emit = defineEmits(['close'])
 
-function closeModal() {
-  isOpen.value = false
-}
-function openModal() {
-  isOpen.value = true
-}
-
-/*export default {
-  components: {
-    TransitionRoot,
-    TransitionChild,
-    Dialog,
-    DialogPanel,
-    DialogTitle,
-  }
-}*/
 </script>
