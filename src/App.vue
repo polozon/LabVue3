@@ -53,7 +53,7 @@ const name = "Peter"
     </div>
     <!-- Try removing flex-wrap -->
     <div>
-      <div class="bg-slate-300 w-32 h-32 flex flex-wrap">
+      <div class="bg-slate-300 anim  m-4 w-32 h-32 rot flex flex-wrap" :class="enabled ? 'animate-spin' : '-rotate-12' ">
         <!-- Building the class with v-bind -->
         <div v-for="col in colors" :class="col + ' w-12 h-12'" />
       </div>
