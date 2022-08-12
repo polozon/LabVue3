@@ -7,6 +7,7 @@ import KompC from './components/KompC.vue'
 import ProgressBar from './components/ProgressBar.vue'
 import RoundButton from './components/RoundButton.vue'
 import InfoBox from './components/InfoBox.vue'
+import TimerToggle from './components/TimerToggle.vue'
 import { ref } from 'vue'
 import { Switch } from '@headlessui/vue'
 const enabled = ref(false)
@@ -58,13 +59,13 @@ const name = "Peter"
         <div v-for="col in colors" :class="col + ' w-12 h-12'" />
       </div>
 
-<p>
-  Ask a yes/no question:
-  <input v-model="question" />
-</p>
-<p>{{ answer }}</p>
+      <p>
+        Ask a yes/no question:
+        <input v-model="question" />
+      </p>
+      <p>{{ answer }}</p>
 
-
+      <TimerToggle />
 
     </div>
     <!-- <button class="fixed top-5 left-60 w-8 h-8 bg-orange-500 rounded-full" @click="b++;">+</button> -->
