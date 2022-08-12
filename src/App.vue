@@ -57,6 +57,15 @@ const name = "Peter"
         <!-- Building the class with v-bind -->
         <div v-for="col in colors" :class="col + ' w-12 h-12'" />
       </div>
+
+<p>
+  Ask a yes/no question:
+  <input v-model="question" />
+</p>
+<p>{{ answer }}</p>
+
+
+
     </div>
     <!-- <button class="fixed top-5 left-60 w-8 h-8 bg-orange-500 rounded-full" @click="b++;">+</button> -->
   </main>
@@ -67,12 +76,33 @@ export default {
   data() {
     return { a: 10, b: 2, vehicles: ['Bil', 'Båt', 'Cykel'],
     colors: ['bg-red-500','bg-green-500','bg-blue-500','bg-orange-500'], 
-    openPop: false, show: false, showA: true 
+    openPop: false, show: false, showA: true,
+    question: '',
+    answer: 'Questions usually contain a question mark. ;-)' 
+    }
+  },
+  watch: {
+    // whenever question changes, this function will run
+    question(newQuestion, oldQuestion) {
+      if (newQuestion.includes('?')) {
+        this.getAnswer()
+      }
     }
   },
   computed: {
     everyThird() {
       return (this.b % 3) == 0;
+    }
+  },
+  methods: {
+    async getAnswer() {
+      this.answer = 'Thinking...'
+      try {
+        const res = await fetch('https://yesno.wtf/api')
+        this.answer = (await res.json()).answer
+      } catch (error) {
+        this.answer = 'Error! Could not reach the API. ' + error
+      }
     }
   }
 }
