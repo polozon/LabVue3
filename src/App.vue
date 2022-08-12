@@ -60,10 +60,10 @@ const name = "Peter"
       </div>
 
       <p>
-        Ask a yes/no question:
-        <input v-model="question" />
+        Skriv in en fråga:
+        <input class="border border-black" v-model="question" />
       </p>
-      <p>{{ answer }}</p>
+      <p>Svar: {{ answer }}</p>
 
       <TimerToggle />
 
