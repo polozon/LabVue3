@@ -32,6 +32,10 @@ const name = "Peter"
         <span :class="enabled ? 'translate-x-6' : 'translate-x-1'"
           class="inline-block h-4 w-4 transform rounded-full bg-white" />
       </Switch>
+      <button @click="show = !show">Trans</button>
+      <Transition>
+        <p class="inline" v-if="show">Hello</p>
+      </Transition>
     </div>
   </div>
   <main class="flex">
@@ -62,7 +66,8 @@ const name = "Peter"
 export default {
   data() {
     return { a: 10, b: 2, vehicles: ['Bil', 'Båt', 'Cykel'],
-    colors: ['bg-red-500','bg-green-500','bg-blue-500','bg-orange-500'], openPop: false 
+    colors: ['bg-red-500','bg-green-500','bg-blue-500','bg-orange-500'], 
+    openPop: false, show: false 
     }
   }
 }

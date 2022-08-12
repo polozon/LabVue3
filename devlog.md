@@ -10,3 +10,4 @@ npm install @headlessui/vue
 ## 220812:
 
 - Dialog is opened and closed via Props. Composition API. Main parent receives event close after clicking the button.
+- Tested [Transition Component](https://vuejs.org/guide/built-ins/transition.html#the-transition-component). But without Tailwind
