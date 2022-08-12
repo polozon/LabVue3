@@ -20,7 +20,20 @@ const name = "Peter"
       <HelloWorld msg="LabVue3" />
     </div>
   </header>
-
+  <div>
+    <InfoBox :is-open="openPop" @close="openPop=false">Det verkar fungera :-)</InfoBox>
+    <div class="">
+      <RoundButton color="bg-green-400" sign="-" @clicked="b--" />
+      <RoundButton color="bg-orange-400" sign="+" @clicked="b++" />
+      <RoundButton color="bg-blue-400" sign="O" @clicked="openPop=true" />
+      <Switch v-model="enabled" :class="enabled ? 'bg-teal-900' : 'bg-teal-700'"
+        class="relative inline-flex h-6 w-11 items-center rounded-full">
+        <span class="sr-only">Enable notifications</span>
+        <span :class="enabled ? 'translate-x-6' : 'translate-x-1'"
+          class="inline-block h-4 w-4 transform rounded-full bg-white" />
+      </Switch>
+    </div>
+  </div>
   <main class="flex">
     <div class="text-1xl text-green-600 font-bold px-2 py-4">
       <KompA />
@@ -39,18 +52,6 @@ const name = "Peter"
       <div class="bg-slate-300 w-32 h-32 flex flex-wrap">
         <!-- Building the class with v-bind -->
         <div v-for="col in colors" :class="col + ' w-12 h-12'" />
-      </div>
-      <InfoBox :is-open="openPop" @close="openPop=false">Det verkar fungera :-)</InfoBox>
-      <div class="fixed top-5 left-64">
-        <RoundButton color="bg-green-400" sign="-" @clicked="b--" />
-        <RoundButton color="bg-orange-400" sign="+" @clicked="b++" />
-        <RoundButton color="bg-blue-400" sign="O" @clicked="openPop=true" />
-        <Switch v-model="enabled" :class="enabled ? 'bg-teal-900' : 'bg-teal-700'"
-          class="relative inline-flex h-6 w-11 items-center rounded-full">
-          <span class="sr-only">Enable notifications</span>
-          <span :class="enabled ? 'translate-x-6' : 'translate-x-1'"
-            class="inline-block h-4 w-4 transform rounded-full bg-white" />
-        </Switch>
       </div>
     </div>
     <!-- <button class="fixed top-5 left-60 w-8 h-8 bg-orange-500 rounded-full" @click="b++;">+</button> -->
