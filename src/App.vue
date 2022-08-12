@@ -51,9 +51,9 @@ const name = "Peter"
       </div>
       <ProgressBar v-if="enabled" :progress="b % 15" />
     </div>
-    <!-- Try removing flex-wrap -->
+    <!-- Try removing flex-wrap      "-->
     <div>
-      <div class="bg-slate-300 anim  m-4 w-32 h-32 rot flex flex-wrap" :class="enabled ? 'animate-spin' : '-rotate-12' ">
+      <div class="bg-slate-300 anim m-4 w-32 h-32 rot flex" :class="[enabled ? 'animate-spin' : '-rotate-12',{ 'flex-wrap': !everyThird }]" >
         <!-- Building the class with v-bind -->
         <div v-for="col in colors" :class="col + ' w-12 h-12'" />
       </div>
@@ -67,7 +67,12 @@ export default {
   data() {
     return { a: 10, b: 2, vehicles: ['Bil', 'Båt', 'Cykel'],
     colors: ['bg-red-500','bg-green-500','bg-blue-500','bg-orange-500'], 
-    openPop: false, show: false 
+    openPop: false, show: false, showA: true 
+    }
+  },
+  computed: {
+    everyThird() {
+      return (this.b % 3) == 0;
     }
   }
 }
