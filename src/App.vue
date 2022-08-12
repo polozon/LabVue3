@@ -21,7 +21,7 @@ const name = "Peter"
     </div>
   </header>
   <div>
-    <InfoBox :is-open="openPop" @close="openPop=false">Det verkar fungera :-)</InfoBox>
+    <InfoBox title="Popup rubriken är här!" :is-open="openPop" @close="openPop=false">Det verkar fungera :-)</InfoBox>
     <div class="">
       <RoundButton color="bg-green-400" sign="-" @clicked="b--" />
       <RoundButton color="bg-orange-400" sign="+" @clicked="b++" />

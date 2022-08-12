@@ -33,7 +33,7 @@
                 as="h3"
                 class="text-lg font-medium leading-6 text-gray-900"
               >
-                Testar Popup
+                {{ title }}
               </DialogTitle>
               <div class="mt-2">
                 <p class="text-sm text-gray-500">
@@ -68,6 +68,7 @@ import {
 } from '@headlessui/vue'
 
 const props = defineProps({
+  title: String,
   isOpen: Boolean
 })
 const emit = defineEmits(['close'])
