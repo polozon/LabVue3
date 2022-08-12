@@ -33,10 +33,12 @@ const name = "Peter"
         <span :class="enabled ? 'translate-x-6' : 'translate-x-1'"
           class="inline-block h-4 w-4 transform rounded-full bg-white" />
       </Switch>
-      <button @click="show = !show">Trans</button>
-      <Transition>
-        <p class="inline" v-if="show">Hello</p>
-      </Transition>
+      <div class="inline p-1">
+        <button @click="show = !show" class="underline italic">Hello</button>
+        <Transition>
+          <p class="inline" v-if="show"> World</p>
+        </Transition>
+      </div>
     </div>
   </div>
   <main class="flex">
@@ -46,7 +48,7 @@ const name = "Peter"
       <KompB :var-med-camel="1 + 2" />
       <KompB :var-med-camel="name" />
       <KompC />
-      <KompC title="Kalle" :likes="a + b" />
+      <KompC title="Counter" :value="b + 0" />
       <div class="border border-yellow-300">
         <KompB v-for="item in vehicles" :var-med-camel="item" />
       </div>

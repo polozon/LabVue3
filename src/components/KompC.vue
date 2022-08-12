@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>{{ title }} got {{ likes + 1 }}</h1>
+        <h1>{{ title }} is {{ value }}</h1>
     </div>
 </template>
 
@@ -8,7 +8,7 @@
 export default {
   props: {
     title: String,
-    likes: Number
+    value: Number
   }
 }
 </script>
