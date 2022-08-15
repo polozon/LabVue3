@@ -10,8 +10,10 @@ import InfoBox from './components/InfoBox.vue'
 import TimerToggle from './components/TimerToggle.vue'
 import { ref } from 'vue'
 import { Switch } from '@headlessui/vue'
+import { mapState } from 'pinia'
+import { useTestPiniaStore } from './stores'
 const enabled = ref(false)
-const name = "Peter"
+const myname = "Peter"
 </script>
 
 <template>
@@ -46,13 +48,14 @@ const name = "Peter"
       <KompA />
       <KompB var-med-camel="1+2" />
       <KompB :var-med-camel="1 + 2" />
-      <KompB :var-med-camel="name" />
+      <KompB :var-med-camel="myname" />
       <KompC />
       <KompC title="Counter" :value="b + 0" />
       <div class="border border-yellow-300">
         <KompB v-for="item in vehicles" :var-med-camel="item" />
       </div>
       <ProgressBar v-if="enabled" :progress="b % 15" />
+      {{ name }}
     </div>
     <!-- Try removing flex-wrap      "-->
     <div>
@@ -95,7 +98,8 @@ export default {
   computed: {
     everyThird() {
       return (this.b % 3) == 0;
-    }
+    },
+    ...mapState(useTestPiniaStore, ['name']),
   },
   methods: {
     async getAnswer() {
